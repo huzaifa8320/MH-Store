@@ -1,5 +1,142 @@
+// Loader 
+var main = document.getElementById(`main`)
+var loader_div = document.getElementById(`loader_div`)
+main.style.display = "none"
+
+setTimeout(() => {
+  main.style.display = `block`
+  loader_div.style.display = `none`
+
+}, 3000);
+// Loader end 
+
+// Api 
 var details = {
   "products": [
+    {
+      "id": 123,
+      "title": "iPhone 13 Pro",
+      "description": "The iPhone 13 Pro is a cutting-edge smartphone with a powerful camera system, high-performance chip, and stunning display. It offers advanced features for users who demand top-notch technology.",
+      "category": "smartphones",
+      "price": 1099.99,
+      "discountPercentage": 18.3,
+      "rating": 3.42,
+      "stock": 26,
+      "tags": [
+        "smartphones",
+        "apple"
+      ],
+      "brand": "Apple",
+      "sku": "YGQKHPGK",
+      "weight": 8,
+      "dimensions": {
+        "width": 22.39,
+        "height": 9.77,
+        "depth": 19.6
+      },
+      "warrantyInformation": "1 year warranty",
+      "shippingInformation": "Ships in 2 weeks",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 5,
+          "comment": "Highly impressed!",
+          "date": "2024-05-23T08:56:21.625Z",
+          "reviewerName": "Aria Roberts",
+          "reviewerEmail": "aria.roberts@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Great product!",
+          "date": "2024-05-23T08:56:21.625Z",
+          "reviewerName": "Ryan Graham",
+          "reviewerEmail": "ryan.graham@x.dummyjson.com"
+        },
+        {
+          "rating": 2,
+          "comment": "Poor quality!",
+          "date": "2024-05-23T08:56:21.625Z",
+          "reviewerName": "Mason Wright",
+          "reviewerEmail": "mason.wright@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "7 days return policy",
+      "minimumOrderQuantity": 1,
+      "meta": {
+        "createdAt": "2024-05-23T08:56:21.625Z",
+        "updatedAt": "2024-05-23T08:56:21.625Z",
+        "barcode": "2986724589988",
+        "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/products/images/smartphones/iPhone%2013%20Pro/1.png",
+        "https://cdn.dummyjson.com/products/images/smartphones/iPhone%2013%20Pro/2.png",
+        "https://cdn.dummyjson.com/products/images/smartphones/iPhone%2013%20Pro/3.png"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/iPhone%2013%20Pro/thumbnail.png"
+    },
+    {
+      "id": 121,
+      "title": "iPhone 5s",
+      "description": "The iPhone 5s is a classic smartphone known for its compact design and advanced features during its release. While it's an older model, it still provides a reliable user experience.",
+      "category": "smartphones",
+      "price": 199.99,
+      "discountPercentage": 11.85,
+      "rating": 3.92,
+      "stock": 65,
+      "tags": [
+        "smartphones",
+        "apple"
+      ],
+      "brand": "Apple",
+      "sku": "AZ1L68SM",
+      "weight": 4,
+      "dimensions": {
+        "width": 8.49,
+        "height": 25.34,
+        "depth": 18.12
+      },
+      "warrantyInformation": "1 week warranty",
+      "shippingInformation": "Ships in 1 week",
+      "availabilityStatus": "In Stock",
+      "reviews": [
+        {
+          "rating": 4,
+          "comment": "Highly impressed!",
+          "date": "2024-05-23T08:56:21.625Z",
+          "reviewerName": "Wyatt Perry",
+          "reviewerEmail": "wyatt.perry@x.dummyjson.com"
+        },
+        {
+          "rating": 5,
+          "comment": "Awesome product!",
+          "date": "2024-05-23T08:56:21.625Z",
+          "reviewerName": "Olivia Anderson",
+          "reviewerEmail": "olivia.anderson@x.dummyjson.com"
+        },
+        {
+          "rating": 4,
+          "comment": "Highly recommended!",
+          "date": "2024-05-23T08:56:21.625Z",
+          "reviewerName": "Mateo Nguyen",
+          "reviewerEmail": "mateo.nguyen@x.dummyjson.com"
+        }
+      ],
+      "returnPolicy": "No return policy",
+      "minimumOrderQuantity": 2,
+      "meta": {
+        "createdAt": "2024-05-23T08:56:21.625Z",
+        "updatedAt": "2024-05-23T08:56:21.625Z",
+        "barcode": "2903942810911",
+        "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+      },
+      "images": [
+        "https://cdn.dummyjson.com/products/images/smartphones/iPhone%205s/1.png",
+        "https://cdn.dummyjson.com/products/images/smartphones/iPhone%205s/2.png",
+        "https://cdn.dummyjson.com/products/images/smartphones/iPhone%205s/3.png"
+      ],
+      "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/iPhone%205s/thumbnail.png"
+    },
     {
       "id": 101,
       "title": "Apple AirPods Max Silver",
@@ -426,68 +563,6 @@ var details = {
       "thumbnail": "https://cdn.dummyjson.com/products/images/mobile-accessories/Selfie%20Stick%20Monopod/thumbnail.png"
     },
     {
-      "id": 121,
-      "title": "iPhone 5s",
-      "description": "The iPhone 5s is a classic smartphone known for its compact design and advanced features during its release. While it's an older model, it still provides a reliable user experience.",
-      "category": "smartphones",
-      "price": 199.99,
-      "discountPercentage": 11.85,
-      "rating": 3.92,
-      "stock": 65,
-      "tags": [
-        "smartphones",
-        "apple"
-      ],
-      "brand": "Apple",
-      "sku": "AZ1L68SM",
-      "weight": 4,
-      "dimensions": {
-        "width": 8.49,
-        "height": 25.34,
-        "depth": 18.12
-      },
-      "warrantyInformation": "1 week warranty",
-      "shippingInformation": "Ships in 1 week",
-      "availabilityStatus": "In Stock",
-      "reviews": [
-        {
-          "rating": 4,
-          "comment": "Highly impressed!",
-          "date": "2024-05-23T08:56:21.625Z",
-          "reviewerName": "Wyatt Perry",
-          "reviewerEmail": "wyatt.perry@x.dummyjson.com"
-        },
-        {
-          "rating": 5,
-          "comment": "Awesome product!",
-          "date": "2024-05-23T08:56:21.625Z",
-          "reviewerName": "Olivia Anderson",
-          "reviewerEmail": "olivia.anderson@x.dummyjson.com"
-        },
-        {
-          "rating": 4,
-          "comment": "Highly recommended!",
-          "date": "2024-05-23T08:56:21.625Z",
-          "reviewerName": "Mateo Nguyen",
-          "reviewerEmail": "mateo.nguyen@x.dummyjson.com"
-        }
-      ],
-      "returnPolicy": "No return policy",
-      "minimumOrderQuantity": 2,
-      "meta": {
-        "createdAt": "2024-05-23T08:56:21.625Z",
-        "updatedAt": "2024-05-23T08:56:21.625Z",
-        "barcode": "2903942810911",
-        "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-      },
-      "images": [
-        "https://cdn.dummyjson.com/products/images/smartphones/iPhone%205s/1.png",
-        "https://cdn.dummyjson.com/products/images/smartphones/iPhone%205s/2.png",
-        "https://cdn.dummyjson.com/products/images/smartphones/iPhone%205s/3.png"
-      ],
-      "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/iPhone%205s/thumbnail.png"
-    },
-    {
       "id": 122,
       "title": "iPhone 6",
       "description": "The iPhone 6 is a stylish and capable smartphone with a larger display and improved performance. It introduced new features and design elements, making it a popular choice in its time.",
@@ -548,68 +623,6 @@ var details = {
         "https://cdn.dummyjson.com/products/images/smartphones/iPhone%206/3.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/iPhone%206/thumbnail.png"
-    },
-    {
-      "id": 123,
-      "title": "iPhone 13 Pro",
-      "description": "The iPhone 13 Pro is a cutting-edge smartphone with a powerful camera system, high-performance chip, and stunning display. It offers advanced features for users who demand top-notch technology.",
-      "category": "smartphones",
-      "price": 1099.99,
-      "discountPercentage": 18.3,
-      "rating": 3.42,
-      "stock": 26,
-      "tags": [
-        "smartphones",
-        "apple"
-      ],
-      "brand": "Apple",
-      "sku": "YGQKHPGK",
-      "weight": 8,
-      "dimensions": {
-        "width": 22.39,
-        "height": 9.77,
-        "depth": 19.6
-      },
-      "warrantyInformation": "1 year warranty",
-      "shippingInformation": "Ships in 2 weeks",
-      "availabilityStatus": "In Stock",
-      "reviews": [
-        {
-          "rating": 5,
-          "comment": "Highly impressed!",
-          "date": "2024-05-23T08:56:21.625Z",
-          "reviewerName": "Aria Roberts",
-          "reviewerEmail": "aria.roberts@x.dummyjson.com"
-        },
-        {
-          "rating": 4,
-          "comment": "Great product!",
-          "date": "2024-05-23T08:56:21.625Z",
-          "reviewerName": "Ryan Graham",
-          "reviewerEmail": "ryan.graham@x.dummyjson.com"
-        },
-        {
-          "rating": 2,
-          "comment": "Poor quality!",
-          "date": "2024-05-23T08:56:21.625Z",
-          "reviewerName": "Mason Wright",
-          "reviewerEmail": "mason.wright@x.dummyjson.com"
-        }
-      ],
-      "returnPolicy": "7 days return policy",
-      "minimumOrderQuantity": 1,
-      "meta": {
-        "createdAt": "2024-05-23T08:56:21.625Z",
-        "updatedAt": "2024-05-23T08:56:21.625Z",
-        "barcode": "2986724589988",
-        "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-      },
-      "images": [
-        "https://cdn.dummyjson.com/products/images/smartphones/iPhone%2013%20Pro/1.png",
-        "https://cdn.dummyjson.com/products/images/smartphones/iPhone%2013%20Pro/2.png",
-        "https://cdn.dummyjson.com/products/images/smartphones/iPhone%2013%20Pro/3.png"
-      ],
-      "thumbnail": "https://cdn.dummyjson.com/products/images/smartphones/iPhone%2013%20Pro/thumbnail.png"
     },
     {
       "id": 124,
@@ -1423,17 +1436,18 @@ var details = {
   "skip": 0,
   "limit": 23
 }
+// Api end 
 
-
-
-
-
+// Variables 
 var category = document.getElementsByClassName(`category`)
 var card = document.getElementById(`card`)
 var category_main = document.getElementById(`category_main`)
+// Variables end 
+
+// Api show 
 card.innerHTML = ""
 for (let i = 0; i < details.products.length; i++) {
-    card.innerHTML += `
+  card.innerHTML += `
        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex justify-content-center mb-4 mt-5">
           <div class="div1 find">
               <div class="img d-flex justify-content-center py-2">
@@ -1448,7 +1462,9 @@ for (let i = 0; i < details.products.length; i++) {
           </div>
        </div>
        `
-  }
+       find()
+}
+
 for (let i = 0; i < category.length; i++) {
   category[i].addEventListener(`click`, function () {
     var new1 = category[i].innerHTML;
@@ -1464,87 +1480,130 @@ for (let i = 0; i < category.length; i++) {
               </div>
               <div class="p-3">
                   <p class="fw-medium fs-5 mt-2 title">${details.products[i].title.slice(0, 20)}....</p>
-                  <p class="discription">${details.products[i].description.slice(0, 25)}....</p>
+                  <p class="description">${details.products[i].description.slice(0, 25)}....</p>
                   <p class="price">Price : $${details.products[i].price}</p>
                   <p class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i> (${details.products[i].rating})</p>
               </div>
           </div>
        </div>
        `
+       find()
       }
     }
+
     else if (new1 == `Mobile - Accessories`) {
       for (let i = 0; i < details.products.length; i++) {
         if (details.products[i].category == `mobile-accessories`) {
           card.innerHTML += `
           <div class="col-xl-3 col-lg-4 col-sm-6 d-flex justify-content-center mb-4 mt-5">
-             <div class="div1 find">
-                 <div class="img d-flex justify-content-center py-2">
-                    <img src="${details.products[i].images[0]}" alt="" class="img1 py-2">
-                 </div>
-                 <div class="p-3">
-                     <p class="fw-medium fs-5 mt-2">${details.products[i].title.slice(0, 20)}....</p>
-                     <p>${details.products[i].description.slice(0, 25)}....</p>
-                     <p>Price : $${details.products[i].price}</p>
-                     <p><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i> (${details.products[i].rating})</p>
-                 </div>
-             </div>
+          <div class="div1 find">
+              <div class="img d-flex justify-content-center py-2">
+                 <img src="${details.products[i].images[0]}" alt="" class="img1 py-2">
+              </div>
+              <div class="p-3">
+                  <p class="fw-medium fs-5 mt-2 title">${details.products[i].title.slice(0, 20)}....</p>
+                  <p class="description">${details.products[i].description.slice(0, 25)}....</p>
+                  <p class="price">Price : $${details.products[i].price}</p>
+                  <p class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i> (${details.products[i].rating})</p>
+              </div>
           </div>
+       </div>
           `
+          find()
         }
 
       }
     }
+
     else if (new1 == `Smartphones`) {
       for (let i = 0; i < details.products.length; i++) {
         if (details.products[i].category == `smartphones`) {
           card.innerHTML += `
           <div class="col-xl-3 col-lg-4 col-sm-6 d-flex justify-content-center mb-4 mt-5">
-             <div class="div1 find">
-                 <div class="img d-flex justify-content-center py-2">
-                    <img src="${details.products[i].images[0]}" alt="" class="img1 py-2">
-                 </div>
-                 <div class="p-3">
-                    <p class="fw-medium fs-5 mt-2">${details.products[i].title.slice(0, 20)}....</p>
-                    <p>${details.products[i].description.slice(0, 25)}....</p>
-                    <p>Price : $${details.products[i].price}</p>
-                    <p><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i> (${details.products[i].rating})</p>
-                 </div>
-             </div>
+          <div class="div1 find">
+              <div class="img d-flex justify-content-center py-2">
+                 <img src="${details.products[i].images[0]}" alt="" class="img1 py-2">
+              </div>
+              <div class="p-3">
+                  <p class="fw-medium fs-5 mt-2 title">${details.products[i].title.slice(0, 20)}....</p>
+                  <p class="description">${details.products[i].description.slice(0, 25)}....</p>
+                  <p class="price">Price : $${details.products[i].price}</p>
+                  <p class="rating"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i> (${details.products[i].rating})</p>
+              </div>
           </div>
+       </div>
           `
+          find()
         }
-
       }
     }
     window.scrollTo(0, 0);
   })
 }
+// Api show end 
 
-var find = document.getElementsByClassName(`find`)
-var card_2 = document.getElementById(`card_2`)
-for (let i = 0; i < find.length; i++) {
-  find[i].addEventListener(`click`, function () {
-  //  var this_text = this
-  //  var img =this.getElementsByClassName(`img`)[0].querySelector(`img`).src
-  //  var title =this.getElementsByClassName(`title`)[0].innerHTML
-  //  var discription =this.getElementsByClassName(`discription`)[0].innerHTML
-   console.log(this.innerHTML);
-    
-    // localStorage.setItem(`cart_details` , JSON.stringify(cart_details))
-    // window.location.href = `./pages/cart.html`
-    
-  })
-}
-var cart_details = {
-  // img : click_img ,
-  // title : click_title ,
-  // description : click_discription ,
-  // price : click_price ,
-  // rating : click_rating ,
-}
+// Set localStorage for next page 
+function find() {
+  var find = card.getElementsByClassName(`find`)
+  var cart = []
+  for (let i = 0; i < find.length; i++) {
+    find[i].addEventListener(`click`, function () {
+      var img = this.getElementsByClassName(`img`)[0].querySelector(`img`).src
+      var title = this.getElementsByClassName(`title`)[0].innerText.slice(0, -4)
+      var description = this.getElementsByClassName(`description`)[0].innerText.slice(0, -4)
+      var price = this.getElementsByClassName(`price`)[0].innerText.slice(9)
+      for (let i = 0; i < details.products.length; i++) {
+        if (img == details.products[i].images[0] &&
+          details.products[i].title.includes(title) &&
+          details.products[i].description.includes(description)) {
+            localStorage.removeItem('cart_details')
+            cart.push(details.products[i])
+            // console.log(cart);
+            localStorage.setItem(`cart_details`, JSON.stringify(cart))
+            window.location.href = `pages/cart.html`
+          }
+        }
+      })
+    }
+  }
+// Set localStorage for next page  end 
+
 
 var log_out = document.getElementById(`log_out`)
-log_out.addEventListener(`click` , function(){
-  Swal.fire("Website in Maintainence 🛠️ 🚧");
+var u_name = JSON.parse(localStorage.getItem(`u_name`))
+if (u_name) {
+  var u_name = JSON.parse(localStorage.getItem(`u_name`))
+  console.log(u_name);
+  var u_name_l = JSON.parse(localStorage.getItem(u_name))
+  console.log();
+    log_out.innerHTML=`Hello 👋 ${u_name_l.username.slice(0,1).toUpperCase()}${u_name_l.username.slice(1)}`
+}
+
+if (log_out.innerHTML != `𝓛𝓸𝓰𝓲𝓷`) {
+  log_out.addEventListener(`mouseover` , function(){
+    log_out.innerHTML = `𝓛𝓸𝓰 𝓞𝓾𝓽`
+  })
+  log_out.addEventListener(`mouseout` , function(){
+    log_out.innerHTML = `Hello 👋 ${u_name_l.username.slice(0,1).toUpperCase()}${u_name_l.username.slice(1)}`
+  })
+  log_out.addEventListener(`click`, function () {
+    Swal.fire({
+      title: "Are you sure you want to log Out ?",
+      showDenyButton: true,
+    confirmButtonText: "Yes",
+    denyButtonText: `No`
+  }).then((result) => {
+    if (result.isConfirmed) {
+       localStorage.removeItem(`u_name`)
+         window.location.href = `pages/login.html`
+    }
+  });
 })
+}
+else{
+  log_out.addEventListener(`click` , function(){
+     window.location.href = `pages/login.html`
+  })
+}
+
+
