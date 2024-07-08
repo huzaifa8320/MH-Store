@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', function () {
 var product = JSON.parse(localStorage.getItem(`cart_details`))
 var cart_2 = document.getElementById(`cart_2`)
 let cart_img = product[0].images
@@ -309,4 +310,6 @@ function buy() {
         }
     });
 }
+})
+    
 
