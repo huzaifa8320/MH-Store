@@ -22,7 +22,7 @@ for (let i = 0; i < cart_img.length; i++) {
 if (cart_img.length > 1) {
     cart_2.innerHTML = `
     <div class=" m-auto col-sm-9 col-md-6">
-        <div class="div2">
+        <div class="div2 div3">
               <div class="img_2_div d-flex justify-content-center py-2">
                 <div id="carouselExampleInterval" class="carousel carousel-dark slide width_height_full" data-bs-ride="carousel">
                     <div class="carousel-inner width_height_full">
@@ -48,8 +48,8 @@ if (cart_img.length > 1) {
               </div>
         </div>
     </div>
-<div class="m-auto col-sm-9 col-md-6 mt-5 mt-md-0">
-    <div class="div2 py-4 p-sm-5 container">
+<div class="m-auto col-sm-9 col-md-6">
+    <div class="div2 div4 container-fluid p-md-5">
          <p class="fw-medium fs-2">${cart_title} 📱</p>
          <p class="fw-semibold fs-5">● Brand: ${cart_brand} 🏷️</p>
          <p class="fw-semibold fs-5">● ${cart_warrantyInformation} 📜</p>
@@ -68,11 +68,12 @@ if (cart_img.length > 1) {
         <button class="buy_btn fw-bold fs-5 mt-4" onclick="buy()">Buy Now 🛒</button>
         <div class="mt-3" id="comment_box">
              <div class="sticky-top comment_send d-flex align-items-center">
-                <input type="text" placeholder="Enter review" class="h-75 comment_input ps-3">
-                <button onclick="send()" class="send_btn">
+                <input type="text" placeholder="Enter review" class="h-75 comment_input ps-3" id="comment_inputs">
+                <button class="send_btn" onclick="send()">
                   <i class="bi bi-send-fill fs-3"></i>
                 </button>
              </div>
+             <div id="comment_push"></div>
         </div>
     </div>
 </div>
@@ -83,7 +84,7 @@ if (cart_img.length > 1) {
 else {
     cart_2.innerHTML = `
     <div class=" m-auto col-sm-9 col-md-6">
-        <div class="div2">
+        <div class="div2 div3">
               <div class="img_2_div d-flex justify-content-center py-2">
                 <img src="${cart_img[0]}" alt="" class="img_2">
               </div>
@@ -97,8 +98,8 @@ else {
               </div>
         </div>
     </div>
-<div class="m-auto col-sm-9 col-md-6 mt-5 mt-md-0">
-    <div class="div2 py-4 p-sm-5 container">
+<div class="m-auto col-sm-9 col-md-6">
+    <div class="div2 div4 p-md-5 container-fluid">
          <p class="fw-medium font_size">${cart_title} 📱</p>
          <p class="fw-semibold fs-5">● Brand: ${cart_brand} 🏷️</p>
          <p class="fw-semibold fs-5">● ${cart_warrantyInformation} 📜</p>
@@ -117,22 +118,21 @@ else {
         <button class="buy_btn fw-bold fs-5 mt-4" onclick="buy()">Buy Now 🛒</button>
         <div class="mt-3" id="comment_box">
              <div class="sticky-top comment_send d-flex align-items-center">
-                <input type="text" placeholder="Enter review" class="h-75 comment_input ps-3">
+                <input type="text" placeholder="Enter review" class="h-75 comment_input ps-3" >
                 <button onclick="send()" class="send_btn">
                   <i class="bi bi-send-fill fs-3"></i>
                 </button>
              </div>
+             <div id="comment_push"></div>
         </div>
     </div>
 </div>
 `
 }
 
-let comment_box = document.getElementById(`comment_box`)
+let comment_push = document.getElementById(`comment_push`)
 for (let i = 0; i < product[0].reviews.length; i++) {
-    let comment = product[0].reviews[i].comment
-    let name = product[0].reviews[i].reviewerName
-    comment_box.innerHTML += `
+    comment_push.innerHTML += `
     <div class="comment d-flex d-flex align-items-center my-3">
                 <div class="comment_profile d-flex justify-content-center align-items-center">
                    <i class="bi bi-person-circle fs-1"></i>
@@ -145,37 +145,43 @@ for (let i = 0; i < product[0].reviews.length; i++) {
 }
 
 var comment_input = document.getElementsByClassName(`comment_input`)[0]
-comment_input.addEventListener(`keypress` , function(e){
-   if (e.key == `Enter`) {
-    send()
-   }
-})
+
 function send() {
-    console.log(comment_input.value);
-    if (comment_input.value == ``) {
-        Swal.fire("Please enter review !");
-    }
-    else{
-        if (JSON.parse(localStorage.getItem(u_name))) {
-            
+    let u_name = JSON.parse(localStorage.getItem('u_name'))
+    if (u_name) {
+        if (comment_input.value == ``) {
+            Swal.fire("Please enter review 📝");
         }
-        Swal.fire("Review Added successfully ✅");
-        comment_box.innerHTML += `
-    <div class="comment d-flex d-flex align-items-center mb-3">
-                <div class="comment_profile d-flex justify-content-center align-items-center">
-                   <i class="bi bi-person-circle fs-1"></i>
-                </div>
-                <div>
-                   <p class="mb-0 fw-bold">Anonymous:-</p>
-                   <p class="mb-0">${comment_input.value}</p>
-                </div>
-    </div>`
+        else {
+            var real_name = JSON.parse(localStorage.getItem(u_name)).username
+                Swal.fire("Review Added successfully ✅");
+                comment_push.innerHTML += `
+                  <div class="comment d-flex d-flex align-items-center mb-3">
+                  <div class="comment_profile d-flex justify-content-center align-items-center">
+                          <i class="bi bi-person-circle fs-1"></i>
+                       </div>
+                       <div>
+                       <p class="mb-0 fw-bold">${real_name.slice(0, 1).toUpperCase()}${real_name.slice(1)}:-</p>
+                          <p class="mb-0">${comment_input.value}</p>
+                       </div>
+                  </div>`
+                  comment_input.value = ``
+                }
+                
+            }
+            else{
+                Swal.fire("Please Log In first 🔑");
+                setTimeout(() => {
+                    window.location.href = `login.html`
+                }, 1000);
+            }
+        }
+        comment_input.addEventListener(`keypress` , function(e){
+                if (e.key === `Enter`) {
+                 send()
+                }
+             })
     
-    }
-}
-
-
-
 let condition = false
 let description = document.getElementById(`description`)
 let description_text = description.innerText
@@ -193,23 +199,23 @@ if (window.matchMedia('(min-width: 768px) and (max-width: 1200px)').matches) {
             show.innerHTML = `Show less`
             condition = true
             div2.style.height = `600px`
-            
+
         }
         else if (condition == true) {
             description.innerHTML = `${description_text.slice(0, 80)}....`
             show.innerHTML = `Show more`
             condition = false
-            div2.style.height = `500px`
+            div2.style.height = `560px`
         }
     })
-} else if(window.matchMedia('(min-width: 382px) and (max-width: 754px)').matches){
+} else if (window.matchMedia('(min-width: 382px) and (max-width: 754px)').matches) {
     show.addEventListener(`click`, function () {
         if (condition == false) {
             description.innerHTML = `${description_text.slice(0)}`
             show.innerHTML = `Show less`
             condition = true
             div2.style.height = `600px`
-            
+
         }
         else if (condition == true) {
             description.innerHTML = `${description_text.slice(0, 80)}....`
@@ -219,30 +225,30 @@ if (window.matchMedia('(min-width: 768px) and (max-width: 1200px)').matches) {
         }
     })
 }
-else if(window.matchMedia('(min-width: 0px) and (max-width: 382px)').matches){
+else if (window.matchMedia('(min-width: 0px) and (max-width: 382px)').matches) {
     show.addEventListener(`click`, function () {
         if (condition == false) {
             description.innerHTML = `${description_text.slice(0)}`
             show.innerHTML = `Show less`
             condition = true
             div2.style.height = `660px`
-            
+
         }
         else if (condition == true) {
             description.innerHTML = `${description_text.slice(0, 80)}....`
             show.innerHTML = `Show more`
             condition = false
-            div2.style.height = `500px`
+            div2.style.height = `560px`
         }
     })
 }
-else{
+else {
     show.addEventListener(`click`, function () {
         if (condition == false) {
             description.innerHTML = `${description_text.slice(0)}`
             show.innerHTML = `Show less`
             condition = true
-            
+
         }
         else if (condition == true) {
             description.innerHTML = `${description_text.slice(0, 80)}....`
@@ -271,19 +277,22 @@ function update(control) {
 }
 
 function buy() {
-    Swal.fire({
-        title: `${cart_title}`,
-        text: "Are you sure you want to buy this item?",
-        imageUrl: `${cart_img[0]}`,
-        imageHeight: 200,
-        showDenyButton: true,
-        confirmButtonText: "Yes",
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire({
-                title: "Enter your delivery address",
-                input: "text",
-                inputAttributes: {
+    let u_name = JSON.parse(localStorage.getItem('u_name'))
+    if (u_name) {
+        
+        Swal.fire({
+            title: `${cart_title}`,
+            text: "Are you sure you want to buy this item?",
+            imageUrl: `${cart_img[0]}`,
+            imageHeight: 200,
+            showDenyButton: true,
+            confirmButtonText: "Yes",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Enter your delivery address",
+                    input: "text",
+                    inputAttributes: {
                     autocapitalize: "off"
                 },
                 showCancelButton: true,
@@ -303,10 +312,18 @@ function buy() {
                         imageHeight: 200,
                         confirmButtonText: "Ok",
                     })
-
+                    
                 }
             });
         }
     });
+}
+
+else{
+    Swal.fire("Please Log In first 🔑");
+                setTimeout(() => {
+                    window.location.href = `login.html`
+                }, 1000);
+}
 }
 

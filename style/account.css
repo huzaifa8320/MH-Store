@@ -91,7 +91,8 @@
     background: none;
 }
 
-#btn2 {
+#login_btn2,
+#sign_btn2{
     width: 100%;
     height: 45px;
     border-radius: 15px;
@@ -114,8 +115,18 @@
     font-size: 20px;
 }
 
-#btn2:hover,
+#login_btn2:hover,
+#sign_btn2:hover,
 #btn3:hover {
     transform: scale(1.03);
     transition: 0.4s;
+}
+
+#btn4 {
+    width: 100%;
+    height: 45px;
+    border-radius: 15px;
+    background-color: #959CA4;
+    border: none;
+    margin-top: 33px;
 }

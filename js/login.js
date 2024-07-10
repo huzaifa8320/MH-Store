@@ -1,64 +1,15 @@
-
-// Sign_up item 
-var sign_username = document.getElementById(`sign_username`)
-var sign_email = document.getElementById(`sign_email`)
-var sign_password = document.getElementById(`sign_password`)
-
 // Log_in item 
 var log_email = document.getElementById(`log_email`)
 var log_password = document.getElementById(`log_password`)
 
-
 // login button 
-var login_btn2 = document.getElementById(`btn2`)
-
-// Sign_up button 
-var sign_btn2 = document.getElementById(`btn2`)
+var login_btn2 = document.getElementById(`login_btn2`)
 
 // Eye button
 var eye_btn1 = document.getElementById(`btn1`)
 
 // Condition
 var login_fill_condition = true
-var sign_fill_condition = true
-
-
-// Sign up in function start
-sign_btn2.addEventListener(`click`, function () {
-    if (sign_fill_condition == true) {
-        if (sign_username.value == ``) {
-            Swal.fire("Pleas Enter Username 📝");
-        }
-        else if (sign_email.value == ``) {
-            Swal.fire("Pleas Enter Email 📝");
-        }
-        else if (sign_password.value == ``) {
-            Swal.fire("Pleas Enter Password 📝");
-        }
-        else if (!sign_email.value.includes('@gmail.com')) {
-            Swal.fire("Pleas Enter a valid Email 📝");
-        }
-        else {
-            Swal.fire({
-                title: "Account Created Successfully 📝",
-                confirmButtonText: "Ok",
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = 'login.html';
-                }
-            });
-            var sign_details = {
-                username: sign_username.value,
-                email: sign_email.value,
-                password: sign_password.value,
-            }
-            localStorage.setItem(`${sign_email.value}`, JSON.stringify(sign_details))
-            setTimeout(() => {
-                window.location.href = 'login.html';
-            }, 2000);
-        }
-    }
-})
 
 // Log in function start
 login_btn2.addEventListener(`click`, function (event) {

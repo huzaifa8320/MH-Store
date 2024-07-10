@@ -1462,7 +1462,7 @@ for (let i = 0; i < details.products.length; i++) {
           </div>
        </div>
        `
-       find()
+  find()
 }
 
 for (let i = 0; i < category.length; i++) {
@@ -1487,7 +1487,7 @@ for (let i = 0; i < category.length; i++) {
           </div>
        </div>
        `
-       find()
+        find()
       }
     }
 
@@ -1556,53 +1556,50 @@ function find() {
         if (img == details.products[i].images[0] &&
           details.products[i].title.includes(title) &&
           details.products[i].description.includes(description)) {
-            localStorage.removeItem('cart_details')
-            cart.push(details.products[i])
-            // console.log(cart);
-            localStorage.setItem(`cart_details`, JSON.stringify(cart))
-            window.location.href = `pages/cart.html`
-          }
+          localStorage.removeItem('cart_details')
+          cart.push(details.products[i])
+          // console.log(cart);
+          localStorage.setItem(`cart_details`, JSON.stringify(cart))
+          window.location.href = `pages/cart.html`
         }
-      })
-    }
+      }
+    })
   }
+}
 // Set localStorage for next page  end 
-
 
 var log_out = document.getElementById(`log_out`)
 var u_name = JSON.parse(localStorage.getItem(`u_name`))
 if (u_name) {
-  var u_name = JSON.parse(localStorage.getItem(`u_name`))
-  console.log(u_name);
-  var u_name_l = JSON.parse(localStorage.getItem(u_name))
-  console.log();
-    log_out.innerHTML=`Hello 👋 ${u_name_l.username.slice(0,1).toUpperCase()}${u_name_l.username.slice(1)}`
+  var real_name = JSON.parse(localStorage.getItem(u_name)).username
+  console.log(real_name);
+  log_out.innerHTML = `Hello 👋 ${real_name.slice(0, 1).toUpperCase()}${real_name.slice(1)}`
 }
 
 if (log_out.innerHTML != `𝓛𝓸𝓰𝓲𝓷`) {
-  log_out.addEventListener(`mouseover` , function(){
+  log_out.addEventListener(`mouseover`, function () {
     log_out.innerHTML = `𝓛𝓸𝓰 𝓞𝓾𝓽`
   })
-  log_out.addEventListener(`mouseout` , function(){
-    log_out.innerHTML = `Hello 👋 ${u_name_l.username.slice(0,1).toUpperCase()}${u_name_l.username.slice(1)}`
+  log_out.addEventListener(`mouseout`, function () {
+    log_out.innerHTML = `Hello 👋 ${real_name.slice(0, 1).toUpperCase()}${real_name.slice(1)}`
   })
   log_out.addEventListener(`click`, function () {
     Swal.fire({
       title: "Are you sure you want to log Out ?",
       showDenyButton: true,
-    confirmButtonText: "Yes",
-    denyButtonText: `No`
-  }).then((result) => {
-    if (result.isConfirmed) {
-       localStorage.removeItem(`u_name`)
-         window.location.href = `pages/login.html`
-    }
-  });
-})
+      confirmButtonText: "Yes",
+      denyButtonText: `No`
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem(`u_name`)
+        window.location.href = `pages/login.html`
+      }
+    });
+  })
 }
-else{
-  log_out.addEventListener(`click` , function(){
-     window.location.href = `pages/login.html`
+else {
+  log_out.addEventListener(`click`, function () {
+    window.location.href = `pages/login.html`
   })
 }
 
