@@ -1,5 +1,3 @@
-
-
 var product = JSON.parse(localStorage.getItem(`cart_details`))
 var cart_2 = document.getElementById(`cart_2`)
 let cart_img = product[0].images
@@ -328,11 +326,3 @@ else{
                 }, 1000);
 }
 }
-
-window.addEventListener('popstate', function(event) {
-    // Reload the page when the user navigates back
-    location.reload();
-  });
-  
-  // Push a state to ensure popstate is triggered
-  window.history.pushState({}, '');
