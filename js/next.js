@@ -319,7 +319,6 @@ function buy() {
     });
 }
 
-<<<<<<< HEAD
 else{
     Swal.fire("Please Log In first 🔑");
                 setTimeout(() => {
@@ -327,7 +326,4 @@ else{
                 }, 1000);
 }
 }
-=======
-    
->>>>>>> b46e3350dfee9f05501fd7a453b1a37559252907
 
