@@ -1601,13 +1601,3 @@ else {
     window.location.href = `pages/login.html`
   })
 }
-
-
-
-window.addEventListener('popstate', function(event) {
-  // Reload the page when the user navigates back
-  location.reload();
-});
-
-// Push a state to ensure popstate is triggered
-window.history.pushState({}, '');
