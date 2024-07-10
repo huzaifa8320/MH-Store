@@ -146,8 +146,7 @@
 
 @media(max-width:767px){
     #comment_box{
-        height: 280px;
-        border: 2px solid black;
+        height: 260px;
     }
 }
 

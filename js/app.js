@@ -6,7 +6,6 @@ main.style.display = "none"
 setTimeout(() => {
   main.style.display = `block`
   loader_div.style.display = `none`
-
 }, 3000);
 // Loader end 
 
@@ -1604,3 +1603,11 @@ else {
 }
 
 
+
+window.addEventListener('popstate', function(event) {
+  // Reload the page when the user navigates back
+  location.reload();
+});
+
+// Push a state to ensure popstate is triggered
+window.history.pushState({}, '');
