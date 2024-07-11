@@ -1556,8 +1556,8 @@ function find() {
           details.products[i].title.includes(title) &&
           details.products[i].description.includes(description)) {
           localStorage.removeItem('cart_details')
+          cart = []
           cart.push(details.products[i])
-          // console.log(cart);
           localStorage.setItem(`cart_details`, JSON.stringify(cart))
           window.location.href = `pages/cart.html`
         }
