@@ -176,6 +176,12 @@
         font-size: 20px;
     }
 }
+@media(max-width:400px){
+    .font_size{
+        font-size: 19px;
+        padding-top: 15px;
+    }
+}
 
 @media(max-width:767px){
     .div2{

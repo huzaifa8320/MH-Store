@@ -50,7 +50,7 @@ if (cart_img.length > 1) {
     </div>
 <div class="m-auto col-sm-9 col-md-6">
     <div class="div2 div4 container-fluid p-md-5">
-         <p class="fw-medium fs-2">${cart_title} 📱</p>
+         <p class="fw-medium font_size">${cart_title} 📱</p>
          <p class="fw-semibold fs-5">● Brand: ${cart_brand} 🏷️</p>
          <p class="fw-semibold fs-5">● ${cart_warrantyInformation} 📜</p>
          <div class="d-flex align-items-center mt-4">
