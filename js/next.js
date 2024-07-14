@@ -13,7 +13,7 @@ for (let i = 0; i < cart_img.length; i++) {
     carousel += `
     <div class="carousel-item${i === 0 ? ' active' : ''} width_height_full p-3" data-bs-interval="2000">
       <div class="d-flex justify-content-center height_full">
-        <img src="${cart_img[i]}" class="d-block" alt="...">
+        <img src="${cart_img[i]}" class="d-block" alt="Loadding...">
       </div>
     </div>
     `
@@ -86,7 +86,7 @@ else {
     <div class=" m-auto col-sm-9 col-md-6">
         <div class="div2 div3">
               <div class="img_2_div d-flex justify-content-center py-2">
-                <img src="${cart_img[0]}" alt="" class="img_2">
+                <img src="${cart_img[0]}" alt="Loadding..." class="img_2">
               </div>
               <div class="p-3 d-flex">
                 <div>

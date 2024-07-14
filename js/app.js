@@ -1450,7 +1450,7 @@ for (let i = 0; i < details.products.length; i++) {
        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex justify-content-center mb-4 mt-5">
           <div class="div1 find">
               <div class="img d-flex justify-content-center py-2">
-                 <img src="${details.products[i].images[0]}" alt="" class="img1 py-2">
+                 <img src="${details.products[i].images[0]}" alt="Loadding..." class="img1 py-2">
               </div>
               <div class="p-3">
                   <p class="fw-medium fs-5 mt-2 title">${details.products[i].title.slice(0, 20)}....</p>
@@ -1475,7 +1475,7 @@ for (let i = 0; i < category.length; i++) {
        <div class="col-xl-3 col-lg-4 col-sm-6 d-flex justify-content-center mb-4 mt-5">
           <div class="div1 find">
               <div class="img d-flex justify-content-center py-2">
-                 <img src="${details.products[i].images[0]}" alt="" class="img1 py-2">
+                 <img src="${details.products[i].images[0]}" alt="Loadding..." class="img1 py-2">
               </div>
               <div class="p-3">
                   <p class="fw-medium fs-5 mt-2 title">${details.products[i].title.slice(0, 20)}....</p>
@@ -1497,7 +1497,7 @@ for (let i = 0; i < category.length; i++) {
           <div class="col-xl-3 col-lg-4 col-sm-6 d-flex justify-content-center mb-4 mt-5">
           <div class="div1 find">
               <div class="img d-flex justify-content-center py-2">
-                 <img src="${details.products[i].images[0]}" alt="" class="img1 py-2">
+                 <img src="${details.products[i].images[0]}" alt="Loadding..." class="img1 py-2">
               </div>
               <div class="p-3">
                   <p class="fw-medium fs-5 mt-2 title">${details.products[i].title.slice(0, 20)}....</p>
@@ -1521,7 +1521,7 @@ for (let i = 0; i < category.length; i++) {
           <div class="col-xl-3 col-lg-4 col-sm-6 d-flex justify-content-center mb-4 mt-5">
           <div class="div1 find">
               <div class="img d-flex justify-content-center py-2">
-                 <img src="${details.products[i].images[0]}" alt="" class="img1 py-2">
+                 <img src="${details.products[i].images[0]}" alt="Loadding..." class="img1 py-2">
               </div>
               <div class="p-3">
                   <p class="fw-medium fs-5 mt-2 title">${details.products[i].title.slice(0, 20)}....</p>
